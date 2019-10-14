@@ -1,13 +1,15 @@
 version: 2
 jobs:
   build:
-    steps:
-      - run:
-          command: 'sudo docker build -t fischcheng/docker-react -f Dockerfile.dev .'
+    docker:
+      steps:
+        - run:
+            command: 'sudo docker build -t fischcheng/docker-react -f Dockerfile.dev .'
   test:
-    steps:
-      - run: 
-          command: 'sudo docker run -e CI=true fischcheng/docker-react npm run test'
+    docker:
+      steps:
+        - run: 
+            command: 'sudo docker run -e CI=true fischcheng/docker-react npm run test'
 
 workflows:
   version: 2
