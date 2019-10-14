@@ -1,9 +1,8 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: docker
+    machine: true
     steps:
-      - setup_remote_docker
+      - checkout
       - run: 'docker build -t fischcheng/docker-react -f Dockerfile.dev .'
       - run: 'docker run -e CI=true fischcheng/docker-react npm run test'
