@@ -3,8 +3,8 @@ jobs:
   build:
     docker:
       - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run: 'sudo docker build -t fischcheng/docker-react -f Dockerfile.dev .'
-      - run: 'sudo docker run -e CI=true fischcheng/docker-react npm run test'
+      steps:
+        - checkout
+        - setup_remote_docker
+        - run: 'sudo docker build -t fischcheng/docker-react -f Dockerfile.dev .'
+        - run: 'sudo docker run -e CI=true fischcheng/docker-react npm run test'
